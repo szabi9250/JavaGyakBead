@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         table, th, td {
             border: 1px solid black;
@@ -28,8 +29,8 @@
                 <li><a href="/index.html">Kezdőlap</a></li>
                 <li><a href="/kinalat">Kínálat</a></li>
                 <li ><a href="/kapcsolat">Kapcsolat</a></li>
-                <li class="current"><a href="/uzenetek">Üzenetek</a></li>
-                <li><a href="/diagram">Diagram</a></li>
+                <li><a href="/uzenetek">Üzenetek</a></li>
+                <li  class="current"><a href="/diagram">Diagram</a></li>
                 <li><a href="/crud">CRUD</a></li>
                 <li><a href="/restful">Restful</a></li>
                 <li><a href="/Admin">Admin menü</a></li>
@@ -43,34 +44,46 @@
     <section class="wrapper style2">
         <div class="container">
             <header class="major">
-                <h2>Űrlap</h2>
+                <h2>Sütemények típusok alapjáni száma</h2>
             </header>
         </div>
         <div th:insert="menu"></div>
     </section>
 
     <section class="wrapper style1">
-        <div>
-            <table>
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Név</th>
-                    <th>Tárgy</th>
-                    <th>Üzenet</th>
-                    <th>Üzenet küldés ideje</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="u : ${uzenetek}">
-                    <td th:text="${u.id}"></td>
-                    <td th:text="${u.nev}"></td>
-                    <td th:text="${u.targy}"></td>
-                    <td th:text="${u.uzenet}"></td>
-                    <td th:text="${u.ido}"></td>
-                </tr>
-                </tbody>
-            </table>
+        <div style="width: 900px; height: 500px; margin: 0 auto;">
+            <canvas id="tipusChart" width="600" height="400"></canvas>
+            <script th:inline="javascript">
+                var labels = [[${labels}]];
+                var data = [[${data}]];
+
+                var backgroundColors = [];
+                for (var i = 0; i < labels.length; i++) {
+                    var color = 'hsl(' + (i * 360 / labels.length) + ', 70%, 60%)';
+                    backgroundColors.push(color);
+                }
+
+                var ctx = document.getElementById('tipusChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Tipus',
+                            data: data,
+                            backgroundColor: backgroundColors,
+                            borderColor: 'blue',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            </script>
         </div>>
     </section>
 

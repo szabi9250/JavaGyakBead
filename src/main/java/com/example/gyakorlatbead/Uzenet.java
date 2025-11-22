@@ -1,5 +1,8 @@
 package com.example.gyakorlatbead;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "uzenetek")
@@ -11,6 +14,10 @@ public class Uzenet {
     private String nev;
     private String targy;
     private String uzenet;
+
+    @CreationTimestamp
+    @Column(name = "ido", nullable = false, updatable = false)
+    private LocalDateTime ido;
 
     public Uzenet() {
     }
@@ -51,5 +58,13 @@ public class Uzenet {
 
     public void setUzenet(String uzenet) {
         this.uzenet = uzenet;
+    }
+
+    public LocalDateTime getIdo() {
+        return ido;
+    }
+
+    public void setIdo(LocalDateTime ido) {
+        this.ido = ido;
     }
 }
