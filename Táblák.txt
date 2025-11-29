@@ -1,4 +1,9 @@
--- 1. Süti tábla létrehozása
+Létrehozandó adatbázis neve: beadando
+beadando.sql file segítségével a mellékelt táblák és adatok beimportálása
+
+Az adatbázishoz beadando.sql által létrehozott táblák:
+
+Süti tábla
 CREATE TABLE suti (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nev VARCHAR(255) NOT NULL,
@@ -6,7 +11,7 @@ CREATE TABLE suti (
     dijazott BOOLEAN NOT NULL DEFAULT FALSE
 );
 
--- 2. Tartalom tábla létrehozása
+Tartalom tábla
 CREATE TABLE tartalom (
     id INT AUTO_INCREMENT PRIMARY KEY,
     sutiid INT NOT NULL,
@@ -16,7 +21,7 @@ CREATE TABLE tartalom (
         ON UPDATE CASCADE
 );
 
--- 3. Ár tábla létrehozása
+Ár tábla
 CREATE TABLE ar (
     id INT AUTO_INCREMENT PRIMARY KEY,
     sutiid INT NOT NULL,

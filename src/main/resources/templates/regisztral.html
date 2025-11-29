@@ -4,7 +4,7 @@
     <title>Regisztrálás</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
@@ -13,17 +13,17 @@
     <div id="header">
 
         <!-- Logo -->
-        <h1><a href="/index" id="logo">Java Gyakorlat beadandó</a></h1>
+        <h1><a th:href="@{/index}" id="logo">Java Gyakorlat beadandó</a></h1>
 
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li class="current"><a href="/index">Kezdőlap</a></li>
-                <li><a href="/kinalat">Kínálat</a></li>
-                <li><a href="/kapcsolat">Kapcsolat</a></li>
-                <li><a href="/uzenetek">Üzenetek</a></li>
-                <li><a href="/diagram">Diagram</a></li>
-                <li><a href="/crud">CRUD</a></li>
+                <li><a th:href="@{/index}">Kezdőlap</a></li>
+                <li><a th:href="@{/kinalat}">Kínálat</a></li>
+                <li><a th:href="@{/kapcsolat}">Kapcsolat</a></li>
+                <li><a th:href="@{/uzenetek}">Üzenetek</a></li>
+                <li><a th:href="@{/diagram}">Diagram</a></li>
+                <li><a th:href="@{/crud}">CRUD</a></li>
             </ul>
         </nav>
 
@@ -62,12 +62,12 @@
 
 </div>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/jquery.dropotron.min.js"></script>
-<script src="/js/browser.min.js"></script>
-<script src="/js/breakpoints.min.js"></script>
-<script src="/js/util.js"></script>
-<script src="/js/main.js"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/jquery.dropotron.min.js}"></script>
+<script th:src="@{/js/browser.min.js}"></script>
+<script th:src="@{/js/breakpoints.min.js}"></script>
+<script th:src="@{/js/util.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 
 </body>
 </html>

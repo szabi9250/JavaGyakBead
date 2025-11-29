@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity(securedEnabled = true, proxyTargetClass = true)
+@EnableMethodSecurity
 public class WebSecurityConfig {
 
     @Autowired
