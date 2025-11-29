@@ -6,10 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +14,9 @@ import java.util.List;
 @Controller
 public class OtherController {
 
-    //Kapcsolat oldala
     @Autowired
     private SutiRepo sutiRepo;
+
 
     @Autowired
     private TartalomRepo tartalomRepo;
@@ -30,6 +27,7 @@ public class OtherController {
         this.uzenetRepo = uzenetRepo;
     }
 
+    //Kapcsolat oldala
     @GetMapping("/kapcsolat")
     public String urlapForm(Model model) {
         model.addAttribute("message", new Message());
@@ -75,6 +73,7 @@ public class OtherController {
         return "diagram";
     }
 
+    //CRUD oldala
     @GetMapping("/crud")
     public String Crud(Model model) { // Dependency injection
         model.addAttribute("tartalmak", tartalomRepo.findAll());
@@ -104,6 +103,5 @@ public class OtherController {
         tartalomRepo.delete(tartalomRepo.findById(id).get());
         return "redirect:/";
     }
-
 
 }
