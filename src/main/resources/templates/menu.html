@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">>
@@ -24,5 +25,38 @@
 <div sec:authorize="isAuthenticated()">
     <h3>Welcome <span sec:authentication="principal.username">User</span></h3>
 </div>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Menü</title>
+</head>
+<body>
+
+<div th:fragment="menu">
+    <span sec:authorize="isAnonymous()">
+        <a th:href="@{/login}">Bejelentkezés</a>
+    </span>
+
+    <span sec:authorize="isAuthenticated()">
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/logout}">Kijelentkezés</a>
+    </span>
+
+    <span sec:authorize="hasRole('ROLE_ADMIN')">
+        <a th:href="@{/admin/home}">Admin</a>
+    </span>
+
+    <span sec:authorize="isAnonymous()">
+        <a th:href="@{/regisztral}">Regisztrál</a>
+    </span>
+</div>
+
 </body>
 </html>

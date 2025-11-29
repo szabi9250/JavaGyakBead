@@ -8,4 +8,11 @@ import java.util.List;
 public interface SutiRepo extends CrudRepository<Suti, Integer>{
     @Query("SELECT i.tipus, COUNT(i) FROM Suti i GROUP BY i.tipus")
     List<Object[]> countByTipus();
+    /*@Query("SELECT s, t, a FROM Suti s " +
+            "LEFT JOIN Tartalom t ON t.sutiid = s.id " +
+            "LEFT JOIN Ar a ON a.sutiid = s.id")*/
+    @Query("SELECT s, t, a.ertek, a.egyseg FROM Suti s " +
+            "LEFT JOIN Tartalom t ON t.sutiid = s.id " +
+            "LEFT JOIN Ar a ON a.sutiid = s.id")
+    List<Object[]> fullData();
 }

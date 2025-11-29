@@ -27,6 +27,11 @@ public class OtherController {
         this.uzenetRepo = uzenetRepo;
     }
 
+    @GetMapping("/index")
+    public String index(Model model) {
+        return "index";
+    }
+
     //Kapcsolat oldala
     @GetMapping("/kapcsolat")
     public String urlapForm(Model model) {

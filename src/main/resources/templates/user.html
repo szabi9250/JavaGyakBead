@@ -25,6 +25,7 @@
                 <li><a href="/diagram">Diagram</a></li>
                 <li><a href="/crud">CRUD</a></li>
                 <li><a href="/Admin">Admin menü</a></li>
+                <li th:insert="menu :: menu"></li>
 
             </ul>
         </nav>
@@ -35,7 +36,6 @@
     <section class="wrapper style2">
         <div class="container">
             <header class="major">
-                <div th:insert="menu"></div>
                 <h1>Sikeres bejelentkezés.</h1>
             </header>
         </div>

@@ -25,6 +25,7 @@
                 <li><a href="/diagram">Diagram</a></li>
                 <li><a href="/crud">CRUD</a></li>
                 <li><a href="/Admin">Admin menü</a></li>
+                <li th:insert="menu :: menu"></li>
 
             </ul>
         </nav>
@@ -38,7 +39,7 @@
                 <h2>Elküldött üzenet</h2>
             </header>
         </div>
-        <div th:insert="menu"></div>
+        <!--<div th:insert="menu"></div>-->
     </section>
 
     <section class="wrapper style1">
