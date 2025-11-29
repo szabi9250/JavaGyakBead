@@ -24,9 +24,7 @@
                 <li><a href="/uzenetek">Üzenetek</a></li>
                 <li><a href="/diagram">Diagram</a></li>
                 <li><a href="/crud">CRUD</a></li>
-                <li><a href="/restful">Restful</a></li>
-                <li><a href="/Admin">Admin menü</a></li>
-
+                <li th:insert="menu :: menu"></li>
             </ul>
         </nav>
 
@@ -36,11 +34,10 @@
     <section class="wrapper style2">
         <div class="container">
             <header class="major">
-                <h2>Java gyakorlat beadandó feladat, felhasznált téma: HTML5 UP Arcana</h2>
-                <p>Szöveg</p>
+                <h2>Cukrászda</h2>
+                <p>Cukrászdánk weboldala elkészült. Alább láthatóak az elérhető funkciók:</p>
             </header>
         </div>
-        <div th:insert="menu"></div>
     </section>
 
     <section class="wrapper style1">
@@ -50,8 +47,8 @@
                     <div class="box post">
                         <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
                         <div class="inner">
-                            <h3>1</h3>
-                            <p>Szöveg</p>
+                            <h3>Kínálat</h3>
+                            <p>A kínálat oldalon láthatóak az elérhető sütik, tartalmaznak-e allergén anyagokat, árukat, és egységüket</p>
                         </div>
                     </div>
                 </section>
@@ -59,8 +56,8 @@
                     <div class="box post">
                         <a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
                         <div class="inner">
-                            <h3>2</h3>
-                            <p>Szöveg</p>
+                            <h3>Kapcsolat</h3>
+                            <p>A kapcsolat oldalon üzenet küldhető az ütemeltetők felé.</p>
                         </div>
                     </div>
                 </section>
@@ -70,8 +67,8 @@
                     <div class="box post">
                         <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
                         <div class="inner">
-                            <h3>3</h3>
-                            <p>Szöveg</p>
+                            <h3>Üzenetek</h3>
+                            <p>Az üzenetek menüre kattintva láthatóak az üzemeltetőnek küldött üzenetek a bejelntkezett felhasználók számára.</p>
                         </div>
                     </div>
                 </section>
@@ -79,8 +76,8 @@
                     <div class="box post">
                         <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
                         <div class="inner">
-                            <h3>4</h3>
-                            <p>Szöveg</p>
+                            <h3>Diagram</h3>
+                            <p>A diagram menüben leosztva látható mennyi sütemény található típusra bontva.</p>
                         </div>
                     </div>
                 </section>
@@ -90,8 +87,8 @@
                     <div class="box post">
                         <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
                         <div class="inner">
-                            <h3>5</h3>
-                            <p>Szöveg</p>
+                            <h3>CRUD</h3>
+                            <p>A CRUD menüben hozzáadható, törölhető, módosíthatóak a sütik mentességei.</p>
                         </div>
                     </div>
                 </section>
@@ -99,8 +96,8 @@
                     <div class="box post">
                         <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
                         <div class="inner">
-                            <h3>6</h3>
-                            <p>Szöveg</p>
+                            <h3>Admin menü</h3>
+                            <p>Csak adminok tudják látni a tartalmát.</p>
                         </div>
                     </div>
                 </section>
@@ -113,7 +110,7 @@
             <!-- Copyright -->
             <div class="copyright">
                 <ul class="menu">
-                    <li>&copy; Szebeni Szabolcs java gyakorlat beadandó</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    <li>&copy; Szebeni Szabolcs, Tóth Szabolcs Botond java gyakorlat beadandó</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                 </ul>
             </div>
 

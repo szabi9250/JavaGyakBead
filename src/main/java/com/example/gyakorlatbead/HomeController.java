@@ -41,8 +41,6 @@ public class HomeController {
         return "regisztral";
     }
 
-
-
     @Autowired
     private UserRepository userRepo;
     @PostMapping("/regisztral_feldolgoz")

@@ -10,11 +10,15 @@ public class TableController {
     @Autowired private TartalomRepo TartalomRepo;
     @Autowired private SutiRepo SutiRepo;
 
-    @GetMapping("/kinalat")
+    /*@GetMapping("/kinalat")
     public String arLista(Model model) {
         model.addAttribute("arak", ArRepo.findAll());
-        model.addAttribute("tartalom", TartalomRepo.findAll());
-        model.addAttribute("suti", SutiRepo.findAll());
+        return "kinalat";
+    }*/
+    @GetMapping("/kinalat")
+    public String kinalat(Model model) {
+        model.addAttribute("adatok", SutiRepo.fullData());
         return "kinalat";
     }
+
     }

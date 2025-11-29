@@ -51,4 +51,13 @@ private boolean dijazott;
         this.dijazott = dijazott;
     }
 
+    //Restful
+    public Suti() {
+    }
+
+    public Suti(String nev, String tipus, boolean dijazott) {
+        this.nev = nev;
+        this.tipus = tipus;
+        this.dijazott = dijazott;
+    }
 }

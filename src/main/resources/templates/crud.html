@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Üzenetek</title>
+    <title>CRUD</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/css/main.css" />
@@ -28,9 +28,9 @@
                 <li><a href="/index">Kezdőlap</a></li>
                 <li><a href="/kinalat">Kínálat</a></li>
                 <li ><a href="/kapcsolat">Kapcsolat</a></li>
-                <li class="current"><a href="/uzenetek">Üzenetek</a></li>
+                <li><a href="/uzenetek">Üzenetek</a></li>
                 <li><a href="/diagram">Diagram</a></li>
-                <li><a href="/crud">CRUD</a></li>
+                <li class="current"><a href="/crud">CRUD</a></li>
                 <li th:insert="menu :: menu"></li>
 
             </ul>
@@ -42,30 +42,31 @@
     <section class="wrapper style2">
         <div class="container">
             <header class="major">
-                <h2>Üzenetek</h2>
+                <h2>Create, Read, Update, Delete</h2>
             </header>
         </div>
     </section>
 
     <section class="wrapper style1">
         <div>
+            <a href="/uj">Új tartalmat hozzáad</a>
             <table>
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Név</th>
-                    <th>Tárgy</th>
-                    <th>Üzenet</th>
-                    <th>Üzenet küldés ideje</th>
+                    <th>ID</th>
+                    <th>sutiid</th>
+                    <th>Mentes</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="u : ${uzenetek}">
-                    <td th:text="${u.id}"></td>
-                    <td th:text="${u.nev}"></td>
-                    <td th:text="${u.targy}"></td>
-                    <td th:text="${u.uzenet}"></td>
-                    <td th:text="${u.ido}"></td>
+                <tr th:each="t : ${tartalmak}">
+                    <td th:text="${t.id}"></td>
+                    <td th:text="${t.sutiid}"></td>
+                    <td th:text="${t.mentes}"></td>
+                    <td>
+                        <a th:href="@{'/modosit/'+${t.id}}">Módosítás</a>&nbsp;&nbsp;&nbsp;
+                        <a th:href="@{'/torles/'+${t.id}}">Törlés</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Kezdőlap</title>
+    <title>Kapcsolat</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
@@ -13,7 +13,7 @@
     <div id="header">
 
         <!-- Logo -->
-        <h1><a href="/index.html" id="logo">Java Gyakorlat beadandó</a></h1>
+        <h1><a href="/index" id="logo">Java Gyakorlat beadandó</a></h1>
 
         <!-- Nav -->
         <nav id="nav">
@@ -24,8 +24,7 @@
                 <li><a href="/uzenetek">Üzenetek</a></li>
                 <li><a href="/diagram">Diagram</a></li>
                 <li><a href="/crud">CRUD</a></li>
-                <li><a href="/restful">Restful</a></li>
-                <li><a href="/Admin">Admin menü</a></li>
+                <li th:insert="menu :: menu"></li>
 
             </ul>
         </nav>
@@ -39,7 +38,7 @@
                 <h2>Űrlap</h2>
             </header>
         </div>
-        <div th:insert="menu"></div>
+        <!--<div th:insert="menu"></div>-->
     </section>
 
     <section class="wrapper style1">
@@ -62,7 +61,7 @@
             <!-- Copyright -->
             <div class="copyright">
                 <ul class="menu">
-                    <li>&copy; Szebeni Szabolcs java gyakorlat beadandó</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    <li>&copy; Szebeni Szabolcs, Tóth Szabolcs Botond java gyakorlat beadandó</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                 </ul>
             </div>
 

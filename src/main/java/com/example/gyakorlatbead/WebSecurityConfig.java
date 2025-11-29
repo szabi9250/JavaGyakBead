@@ -27,19 +27,20 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        /*http
+        http
                 .authorizeHttpRequests(auth -> auth
                         //statikus erőforrások
-                        .requestMatchers("/css/**", "/js/**", "/images/**", "/sass/**", "/webfonts/**").anonymous()
-
-                        //nyilvános oldalak
-                        .requestMatchers ("/resources/**", "/", "/regisztral", "/regisztral_feldolgoz", "/kinalat", "/ar", "/kapcsolat", "/eredmeny").anonymous()
-                        //jelszó teszt
-                        .requestMatchers("/","/jelszoteszt").anonymous()
-                        //hitelesítéshez között
-                        .requestMatchers("/resources/**", "/", "/home").authenticated()
-                        //admin
+                        .requestMatchers("/css/**", "/js/**", "/images/**", "/sass/**", "/webfonts/**").permitAll()
+                        //nyilvános oldalak, bárki hozzájuk férhet
+                        .requestMatchers("/resources/**", "/", "/regisztral", "/regisztral_feldolgoz", "/kinalat", "/ar", "/kapcsolat", "/eredmeny", "/diagram", "/crud", "/index", "/uj/**", "/modosit/**", "/torles/**", "/ment", "/kapcsolatk").permitAll()
+                        //Loginhoz kötött
+                        .requestMatchers("/uzenetek", "/home").authenticated()
+                        //csak az admin láthatja, alap felhasználónév: admin@gmail.com, jelszó: jelszo1
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+                        //Loginhoz ne férjen hozzá már bejelentkezett felhasználó, csak anonymous, alap felhasználónév: user@gmail.com, jelszó: jelszo2
+                        .requestMatchers("/login").anonymous()
+                        //Restful elérhető mindenkinek
+                        .requestMatchers("/restful/**").permitAll()
                 )
                 .formLogin(form -> form
                         .defaultSuccessUrl("/home")
@@ -48,12 +49,15 @@ public class WebSecurityConfig {
                 .logout(logout -> logout
                         .logoutSuccessUrl("/")
                         .permitAll()
-                );*/
-  http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+                );
         return http.build();
-
-
     }
+  /*http
+          .csrf(csrf -> csrf.disable())
+          .authorizeHttpRequests(auth -> auth
+                  .anyRequest().permitAll());
+                          return http.build();
+   */
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration)
