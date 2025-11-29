@@ -80,13 +80,13 @@ public class OtherController {
 
     //CRUD oldala
     @GetMapping("/crud")
-    public String Crud(Model model) { // Dependency injection
+    public String Crud(Model model) {
         model.addAttribute("tartalmak", tartalomRepo.findAll());
         return "crud";
     }
 
     @GetMapping("/uj")
-    public String newTartalom(Model model) { // Dependency injection
+    public String newTartalom(Model model) {
         model.addAttribute("tartalom", new Tartalom());
         return "ujtartalom";
     }
