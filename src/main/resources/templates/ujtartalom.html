@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Kezdőlap</title>
+    <title>Hozzádás</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/css/main.css" />
@@ -28,9 +28,9 @@
                 <li><a href="/index">Kezdőlap</a></li>
                 <li><a href="/kinalat">Kínálat</a></li>
                 <li ><a href="/kapcsolat">Kapcsolat</a></li>
-                <li class="current"><a href="/uzenetek">Üzenetek</a></li>
+                <li><a href="/uzenetek">Üzenetek</a></li>
                 <li><a href="/diagram">Diagram</a></li>
-                <li><a href="/crud">CRUD</a></li>
+                <li class="current"><a href="/crud">CRUD</a></li>
                 <li><a href="/restful">Restful</a></li>
                 <li><a href="/Admin">Admin menü</a></li>
 
@@ -43,34 +43,18 @@
     <section class="wrapper style2">
         <div class="container">
             <header class="major">
-                <h2>Űrlap</h2>
+                <h2>Módosítás</h2>
             </header>
         </div>
-        <div th:insert="menu"></div>
     </section>
 
     <section class="wrapper style1">
         <div>
-            <table>
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Név</th>
-                    <th>Tárgy</th>
-                    <th>Üzenet</th>
-                    <th>Üzenet küldés ideje</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="u : ${uzenetek}">
-                    <td th:text="${u.id}"></td>
-                    <td th:text="${u.nev}"></td>
-                    <td th:text="${u.targy}"></td>
-                    <td th:text="${u.uzenet}"></td>
-                    <td th:text="${u.ido}"></td>
-                </tr>
-                </tbody>
-            </table>
+            <form action="#" th:action="@{/ment}" th:object="${tartalom}" method="post">
+                <p>ID:<input type="text" th:field="*{id}" placeholder="ID" required/></p>
+                <p>Sütiid:<input type="text" th:field="*{sutiid}" placeholder="Süti id" required/></p>
+                <p>Mentes:<input type="text" th:field="*{mentes}" placeholder="Mentes" required/></p>
+                <p><input type="submit" value="Hozzáad" /></p>
         </div>>
     </section>
 

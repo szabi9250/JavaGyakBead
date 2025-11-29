@@ -13,8 +13,6 @@ public class TableController {
     @GetMapping("/kinalat")
     public String arLista(Model model) {
         model.addAttribute("arak", ArRepo.findAll());
-        model.addAttribute("tartalom", TartalomRepo.findAll());
-        model.addAttribute("suti", SutiRepo.findAll());
         return "kinalat";
     }
     }

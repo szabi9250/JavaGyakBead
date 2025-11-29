@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
@@ -16,9 +17,12 @@ import java.util.List;
 @Controller
 public class OtherController {
 
-    //Kapcsolat oldal
+    //Kapcsolat oldala
     @Autowired
     private SutiRepo sutiRepo;
+
+    @Autowired
+    private TartalomRepo tartalomRepo;
 
     private final UzenetRepo uzenetRepo;
 
@@ -46,13 +50,14 @@ public class OtherController {
         return "eredmeny";
     }
 
-    //Üzenetek oldal
+    //Üzenetek oldala
     @GetMapping("/uzenetek")
     public String osszesUzenet(Model model) {
         model.addAttribute("uzenetek", uzenetRepo.findAll(Sort.by(Sort.Direction.DESC, "ido")));
         return "uzenetek";
     }
 
+    //Diagram oldala
     @GetMapping("/diagram")
     public String showChart(Model model) {
         List<Object[]> results = sutiRepo.countByTipus();
@@ -69,4 +74,36 @@ public class OtherController {
 
         return "diagram";
     }
+
+    @GetMapping("/crud")
+    public String Crud(Model model) { // Dependency injection
+        model.addAttribute("tartalmak", tartalomRepo.findAll());
+        return "crud";
+    }
+
+    @GetMapping("/uj")
+    public String newTartalom(Model model) { // Dependency injection
+        model.addAttribute("tartalom", new Tartalom());
+        return "ujtartalom";
+    }
+
+    @PostMapping(value = "/ment")
+    public String saveTartalom(@ModelAttribute Tartalom tartalom) {
+        tartalomRepo.save(tartalom);
+            return "redirect:/";
+        }
+
+    @GetMapping("/modosit/{id}")
+    public String editTartalom(@PathVariable(name = "id") int id, Model model) {
+        model.addAttribute("tartalom", tartalomRepo.findById(id));
+        return "modosit";
+    }
+
+    @GetMapping("/torles/{id}")
+    public String deleteTartalom(@PathVariable(name = "id") int id) {
+        tartalomRepo.delete(tartalomRepo.findById(id).get());
+        return "redirect:/";
+    }
+
+
 }
