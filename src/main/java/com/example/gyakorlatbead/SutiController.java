@@ -30,7 +30,7 @@ public class SutiController {
     @PutMapping("/restful/{id}")
     Suti sutiEdit(@RequestBody Suti adatSuti, @PathVariable int id) {
         return sutirepo1.findById(id)
-                .map(a -> { // Lambda kifejezés
+                .map(a -> {
                     a.setNev(adatSuti.getNev());
                     a.setTipus(adatSuti.getTipus());
                     a.setDijazott(adatSuti.isDijazott());

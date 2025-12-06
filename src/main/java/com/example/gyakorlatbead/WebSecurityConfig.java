@@ -52,12 +52,6 @@ public class WebSecurityConfig {
                 );
         return http.build();
     }
-  /*http
-          .csrf(csrf -> csrf.disable())
-          .authorizeHttpRequests(auth -> auth
-                  .anyRequest().permitAll());
-                          return http.build();
-   */
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration)
